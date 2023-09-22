@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <link href="/css/registerstyle.css" rel="stylesheet" type="text/css">
+    <script src="/js/registerscript.js" type="text/javascript"></script>
+</head>
+<body>
+<section class="container forms">
+    <div class="form login">
+        <div class="form-content">
+            <div>
+                <header>REGISTER</header>
+                <form method="post" th:action="@{/register/save}" th:object="${user}" role="form" id="register_form">
+
+                    <div class="field input-field">
+                        <input th:field="*{username}" type="text" id="username" name="username" class="form-control"
+                               placeholder="Enter your Username"/>
+                    </div>
+                    <div th:if="${#fields.hasErrors('username')}">
+                        <span class="error">
+                            <i class="bx bx-error-circle error-icon"></i>
+                            <p class="error-text" th:errors="*{username}"></p>
+                        </span>
+                    </div>
+
+                    <div class="field input-field">
+                        <input th:field="*{email}" type="email" id="email" name="email" class="form-control"
+                               placeholder="Enter your Email"/>
+                    </div>
+                    <div th:if="${#fields.hasErrors('email')}">
+                        <span class="error">
+                            <i class="bx bx-error-circle error-icon"></i>
+                            <p class="error-text" th:errors="*{email}"></p>
+                        </span>
+                    </div>
+
+                    <div class="field input-field">
+                        <input th:field="*{password}" type="password" id="password" name="password" class="form-control passCheck"
+                               placeholder="Enter your Password"/>
+                        <i class="bx bx-hide eye-icon"></i>
+                    </div>
+                    <div th:if="${#fields.hasErrors('password')}">
+                        <span class="error">
+                            <i class="bx bx-error-circle error-icon"></i>
+                            <p class="error-text" th:errors="*{password}"></p>
+                        </span>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" id="check_password"
+                               placeholder="Re-enter your Password" class="passCheck"/>
+                        <i class="bx bx-hide eye-icon"></i>
+                    </div>
+                    <div id="checkpass_message">
+                        <span class="error">
+                            <i class="bx bx-error-circle error-icon"></i>
+                            <p class="error-text">Password doesn't match</p>
+                        </span>
+                    </div>
+
+                    <div th:if="${param.success}" style="text-align: center;">
+                        <span class="error">
+                            <p class="error-text" style="color: darkgreen;margin: auto; font-size: large">Registered Successfully!</p>
+                        </span>
+                    </div>
+
+                    <div class="field button-field">
+                        <button>REGISTER</button>
+                    </div>
+                    <div class="form-link">
+                        <span> Already have an account?<a th:href="@{/login}"> Login</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="icon">
+            <i class="bx bxs-popsicle"></i>
+            <i class="bx bxs-sushi"></i>
+            <i class="bx bxs-pear"></i>
+            <i class="bx bxs-cheese"></i>
+            <i class="bx bxs-baguette"></i>
+            <i class="bx bxs-bowl-rice"></i>
+            <i class="bx bxs-pizza"></i>
+            <i class="bx bxs-cookie"></i>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

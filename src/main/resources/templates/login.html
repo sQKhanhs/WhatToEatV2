@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link href="/css/loginstyle.css" rel="stylesheet" type="text/css" >
+  <script src="/js/loginscript.js" type="text/javascript"></script>
+</head>
+<body>
+<section class="container forms">
+  <div class="form login">
+    <div class="form-content">
+      <div>
+      <header>LOGIN</header>
+          <form method="post" th:action="@{/login}" role="form">
+            <div class="field input-field">
+              <input type="text" id="username" name="username" class="form-control" placeholder="Username"/>
+            </div>
+
+              <div class="field input-field">
+                <input type="password" id="password" name="password" class="form-control password" placeholder="Password"/>
+                <i class="bx bx-hide eye-icon"></i>
+              </div>
+
+            <div th:if="${param.error}">
+              <span class="error">
+                <i class="bx bx-error-circle error-icon"></i>
+                <p class="error-text email-text">Invalid email or password</p>
+              </span>
+            </div>
+
+            <div th:if="${param.logout}">
+              <span class="error">
+                <i class="bx bx-error-circle error-icon"></i>
+                <p class="error-text email-text">You have been logged out!</p>
+              </span>
+            </div>
+
+            <div class="field button-field">
+              <button type="submit">LOGIN</button>
+            </div>
+            <div class="form-link">
+              <span> Don't have an account?<a th:href="@{/register}"> Register/SignUp Here</a></span>
+            </div>
+          </form>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="icon">
+      <i class="bx bxs-popsicle"></i>
+      <i class="bx bxs-sushi"></i>
+      <i class="bx bxs-pear"></i>
+      <i class="bx bxs-cheese"></i>
+      <i class="bx bxs-baguette"></i>
+      <i class="bx bxs-bowl-rice"></i>
+      <i class="bx bxs-pizza"></i>
+      <i class="bx bxs-cookie"></i>
+    </div>
+  </div>
+</section>
+</body>
+</html>
